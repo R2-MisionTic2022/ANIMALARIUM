@@ -5,9 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var database = require("./config/database");
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
+var usuariosRouter = require('./routes/usuarios.router');
+var auth = require("./auth/main_auth")
+
 var articulosRouter = require('./routes/articulos.router');
+
 
 var app = express();
 
@@ -21,12 +24,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Mongo Connection
 database.mongoConnect();
 
+app.use('/usuarios', usuariosRouter);
+app.use(auth);
+
+
 
 //Router
-
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/articulos', articulosRouter);
 
 // catch 404 and forward to error handler

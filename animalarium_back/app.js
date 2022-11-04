@@ -7,12 +7,19 @@ var database = require("./config/database");
 
 
 var usuariosRouter = require('./routes/usuarios.router');
-var auth = require("./auth/main_auth")
+//var auth = require("./auth/main_auth")
 
 var articulosRouter = require('./routes/articulos.router');
 
+const cors = require('cors');
 
 var app = express();
+
+const corsOptions = {
+	origin: 'http://localhost:3001',
+	optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -25,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 database.mongoConnect();
 
 app.use('/usuarios', usuariosRouter);
-app.use(auth);
+//app.use(auth);
 
 
 

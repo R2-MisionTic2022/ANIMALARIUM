@@ -6,14 +6,14 @@ let response ={
 
 exports.create = function(req,res){
     let articulo = new Articulo({
-        id_articulo: req.body.id_articulo,
+        referencia: req.body.referencia,
         title: req.body.title,
         description: req.body.description,
         url: req.body.url,
         stock: req.body.stock,
         price: req.body.price,
-        category: req.body.category,
-        type_pet: req.body.type_pet,
+        categoria: req.body.categoria,
+        typePet: req.body.typePet,
         status: req.body.status
     })
 
@@ -46,14 +46,14 @@ exports.findOne = function(req,res){
 
 exports.update = function(req,res){
     let articulo = {
-        id_articulo: req.body.id_articulo,
+        referencia: req.body.referencia,
         title: req.body.title,
         description: req.body.description,
         url: req.body.url,
         stock: req.body.stock,
         price: req.body.price,
-        category: req.body.category,
-        type_pet: req.body.type_pet,
+        categoria: req.body.categoria,
+        typePet: req.body.typePet,
         status: req.body.status
     }
 

@@ -35,7 +35,6 @@ app.use('/usuarios', usuariosRouter);
 //app.use(auth);
 
 
-
 //Router
 app.use('/articulos', articulosRouter);
 
